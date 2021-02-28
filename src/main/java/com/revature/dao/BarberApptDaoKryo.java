@@ -41,6 +41,9 @@ public class BarberApptDaoKryo implements BarberApptDao {
 	@Override
 	public boolean createAppointment(Appointment appointment) {
 		
+		if(appointment == null) {
+			return false;
+		}
 		File usersDir = new File("appointments\\");
 		if(!usersDir.exists()) {
 			usersDir.mkdir();
