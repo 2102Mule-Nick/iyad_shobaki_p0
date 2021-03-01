@@ -30,33 +30,33 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 	}
 
 	/*
-	 * Sends a user object to the data access layer to check if the user exist
-	 * and the user is an administrator 
-	 * Returns the user object if the user exists and null if not.
+	 * Sends a user object to the data access layer to check if the user exist and
+	 * the user is an administrator Returns the user object if the user exists and
+	 * null if not.
 	 */
 	@Override
 	public BarberUser authenticateAdmin(BarberUser user) {
+
 		BarberUser existingUser = barberUserDao.getUserByUsername(user.getUsername());
 
-		if (existingUser != null &&
-		    existingUser.getPassword().equals(user.getPassword()) && 
-		    existingUser.getRole().equals("admin")) {
-			
+		if (existingUser != null && existingUser.getPassword().equals(user.getPassword())
+				&& existingUser.getRole().equals("admin")) {
+
 			return existingUser;
 		}
 
 		return null;
 	}
-	
+
 	/*
 	 * Sends a user object to the data access layer to check if the user exist
 	 * Returns the user object if the user exists and null if not.
 	 */
 	@Override
 	public BarberUser authenticateUser(BarberUser user) {
-		
+
 		BarberUser existingUser = barberUserDao.getUserByUsername(user.getUsername());
-		
+
 		if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
 			return existingUser;
 		}
@@ -65,16 +65,20 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 	}
 
 	/*
-	 * Sends a user object to the data access layer to create a user
-	 * Returns back the same object
+	 * Sends a user object to the data access layer to create a user Returns back
+	 * the same object
 	 */
 	@Override
 	public BarberUser registerUser(BarberUser user) {
-		barberUserDao.createUser(user);
-		return user;
+		
+		if (barberUserDao.createUser(user)) {
+
+			return user;
+		}
+		return null;
 	}
-	
-	/* 
+
+	/*
 	 * Connects with the data access layer, gets and returns a list of users
 	 */
 
