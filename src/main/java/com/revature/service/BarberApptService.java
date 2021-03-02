@@ -13,15 +13,16 @@ public interface BarberApptService {
 	 * Returns back the same object or null.
 	 */
 	public Appointment createNewAppointment(Appointment appointment);
-	
-	/* 
+
+	/*
 	 * Connects with the data access layer, gets and returns a list of appointments
 	 */
 	public List<Appointment> getAllAppointments() throws IOException;
-	
+
 	/*
-	 * Connects with the data access layer, gets and returns a list of appointments for a specific user
+	 * Connects with the data access layer, gets and returns a list of appointments
+	 * for a specific user
 	 */
 	public List<Appointment> getAllUserAppointments(String username) throws IOException;
-	
+
 }

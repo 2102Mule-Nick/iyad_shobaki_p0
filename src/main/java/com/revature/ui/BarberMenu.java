@@ -3,13 +3,12 @@ package com.revature.ui;
 import java.io.IOException;
 import java.util.Scanner;
 
-
 public interface BarberMenu {
-	
+
 	/*
 	 * Direct the user to the next menu
 	 */
-	
+
 	public BarberMenu advance();
 
 	/*

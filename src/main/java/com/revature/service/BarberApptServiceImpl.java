@@ -39,9 +39,10 @@ public class BarberApptServiceImpl implements BarberApptService {
 		List<Appointment> appointments = barberApptDao.getAllAppointments();
 		return appointments;
 	}
-	
+
 	/*
-	 * Connects with the data access layer, gets and returns a list of appointments for a specific user
+	 * Connects with the data access layer, gets and returns a list of appointments
+	 * for a specific user
 	 */
 	@Override
 	public List<Appointment> getAllUserAppointments(String username) throws IOException {

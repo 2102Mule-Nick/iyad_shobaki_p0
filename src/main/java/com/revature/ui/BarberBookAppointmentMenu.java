@@ -30,18 +30,18 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 	}
 
 	/*
-	 * Display options to the user 
-	 * Ask the user if he/she wants to book an appointment
+	 * Display options to the user Ask the user if he/she wants to book an
+	 * appointment
 	 *
 	 */
 	@Override
 	public void displayOptions(Scanner scanner) throws IOException {
-		
+
 		System.out.println(" ------- Welcome " + this.user.getUsername() + ", To The Book Appointment Page  --------");
 		printMenu();
-		
+
 		List<Appointment> appointments = null;
-		
+
 		boolean quit = false;
 
 		while (!quit) {
@@ -61,11 +61,11 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 				String appointmentTime = scanner.nextLine();
 				Appointment appointment = new Appointment(appointmentDate, appointmentTime, this.user.getUsername());
 
-				if(barberApptService.createNewAppointment(appointment) != null) {
-					
+				if (barberApptService.createNewAppointment(appointment) != null) {
+
 					System.out.println("An appointment has been scheduled for you on " + "Date: " + appointmentDate
 							+ " at: " + appointmentTime);
-				}else {
+				} else {
 					System.out.println("Something went wrong! Please try again.");
 				}
 
@@ -91,10 +91,8 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 	 */
 	public static void printMenu() {
 		System.out.println("Available actions:\npress");
-		System.out.println("0 - to quit\n" +
-						   "1 - Book an appointment\n" +
-						   "2 - See all appointments\n" +
-						   "9 - Print available actions");
+		System.out.println("0 - to quit\n" + "1 - Book an appointment\n" + "2 - See all appointments\n"
+				+ "9 - Print available actions");
 
 	}
 

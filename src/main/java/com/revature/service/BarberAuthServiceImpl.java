@@ -70,7 +70,7 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 	 */
 	@Override
 	public BarberUser registerUser(BarberUser user) {
-		
+
 		if (barberUserDao.createUser(user)) {
 
 			return user;

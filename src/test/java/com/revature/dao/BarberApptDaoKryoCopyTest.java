@@ -17,7 +17,6 @@ class BarberApptDaoKryoCopyTest {
 	public static Appointment appointment2;
 	public static Appointment appointment3;
 
-
 	@BeforeEach
 	private void setUpService() {
 		appointment1 = new Appointment("02-01-2021", "5PM", "Mike");
@@ -53,7 +52,7 @@ class BarberApptDaoKryoCopyTest {
 		}
 
 	}
-	
+
 	@Test
 	void testGetAllUserAppointmentsForExisitingUser() {
 		service.createAppointment(appointment1);
@@ -66,7 +65,7 @@ class BarberApptDaoKryoCopyTest {
 		}
 
 	}
-	
+
 	@Test
 	void testGetAllUserAppointmentsForNonExistingUSer() {
 		service.createAppointment(appointment1);

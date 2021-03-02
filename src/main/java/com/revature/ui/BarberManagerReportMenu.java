@@ -33,8 +33,8 @@ public class BarberManagerReportMenu implements BarberMenu {
 	}
 
 	/*
-	 * Display options to the user
-	 * Ask the admin if he/she wants to see all appointments or/and all users
+	 * Display options to the user Ask the admin if he/she wants to see all
+	 * appointments or/and all users
 	 *
 	 */
 	@Override

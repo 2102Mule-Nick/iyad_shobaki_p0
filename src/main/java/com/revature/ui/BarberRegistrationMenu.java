@@ -46,12 +46,13 @@ public class BarberRegistrationMenu implements BarberMenu {
 		// this.user = new BarberUser(username, password);
 
 		if (!barberAuthSerivce.isUserExist(this.user)) {
-			if(barberAuthSerivce.registerUser(this.user) != null) {
+			if (barberAuthSerivce.registerUser(this.user) != null) {
 				barberNextMenu = barberLoginMenu;
-			}else {
+			} else {
 				this.user.setUsername("");
 				this.user.setUsername("");
-				System.out.println("Something went wrong! Please press Enter to try again or 'login' to go to the login menu");
+				System.out.println(
+						"Something went wrong! Please press Enter to try again or 'login' to go to the login menu");
 				String answer = scanner.nextLine();
 
 				if ("login".equals(answer)) {

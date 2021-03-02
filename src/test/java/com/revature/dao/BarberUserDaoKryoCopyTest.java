@@ -16,7 +16,7 @@ class BarberUserDaoKryoCopyTest {
 	public static BarberUser user1;
 	public static BarberUser user2;
 	public static BarberUser user3;
-	
+
 	@BeforeEach
 	private void setUp() {
 		user1 = new BarberUser("Mike", "1234");
@@ -24,30 +24,30 @@ class BarberUserDaoKryoCopyTest {
 		user3 = new BarberUser("John", "5678");
 		service = new BarberUserDaoKryoCopy();
 	}
-	
+
 	@AfterEach
 	private void tearDown() {
 		service.deleteAllUsers();
 	}
-	
+
 	@Test
 	void testCreateUser() {
 		assertTrue(service.createUser(user1));
 	}
-	
+
 	@Test
 	void testCreateUserWithNullValue() {
 		assertFalse(service.createUser(null));
 	}
-	
+
 	@Test
 	void testGetUserByUsernameExist() {
 		service.createUser(user1);
 		assertNotNull(service.getUserByUsername("Mike"));
 	}
-	
+
 	@Test
-	void testGetUserByUsernameNotExist() {	
+	void testGetUserByUsernameNotExist() {
 		assertNull(service.getUserByUsername("Lee"));
 	}
 
@@ -56,11 +56,11 @@ class BarberUserDaoKryoCopyTest {
 		service.createUser(user1);
 		service.createUser(user2);
 		service.createUser(user3);
-		
+
 		try {
 			assertEquals(3, service.getAllUsers().size());
 		} catch (IOException e) {
-			
+
 		}
 	}
 
