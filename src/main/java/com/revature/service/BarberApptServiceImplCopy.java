@@ -3,18 +3,18 @@ package com.revature.service;
 import java.io.IOException;
 import java.util.List;
 
-import com.revature.dao.BarberApptDao;
+import com.revature.dao.BarberApptDaoKryoCopy;
 import com.revature.pojo.Appointment;
 
-public class BarberApptServiceImpl implements BarberApptService {
-
-	private BarberApptDao barberApptDao;
+public class BarberApptServiceImplCopy implements BarberApptService{
+	
+	private BarberApptDaoKryoCopy barberApptDao = new BarberApptDaoKryoCopy() ;
 
 	// Constructor
-	public BarberApptServiceImpl(BarberApptDao barberApptDao) {
-		super();
-		this.barberApptDao = barberApptDao;
-	}
+//	public BarberApptServiceImplCopy(BarberApptDao barberApptDao) {
+//		super();
+//		this.barberApptDao = barberApptDao;
+//	}
 
 	/*
 	 * Sends an Appointment object to the data access layer to create an appointment
@@ -52,5 +52,8 @@ public class BarberApptServiceImpl implements BarberApptService {
 		List<Appointment> appointments = barberApptDao.getAllUserAppointments(username);
 		return appointments;
 	}
-
+	
+	public void deleteAllAppointments() {
+		barberApptDao.deleteAllAppointments();
+	}
 }

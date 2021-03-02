@@ -3,18 +3,19 @@ package com.revature.service;
 import java.io.IOException;
 import java.util.List;
 
-import com.revature.dao.BarberUserDao;
+
+import com.revature.dao.BarberUserDaoKryoCopy;
 import com.revature.pojo.BarberUser;
 
-public class BarberAuthServiceImpl implements BarberAuthSerivce {
+public class BarberAuthServiceImplCopy implements BarberAuthSerivce{
 
-	private BarberUserDao barberUserDao;
+	private BarberUserDaoKryoCopy barberUserDao = new BarberUserDaoKryoCopy();
 
-	// Constructor
-	public BarberAuthServiceImpl(BarberUserDao barberUserDao) {
-		super();
-		this.barberUserDao = barberUserDao;
-	}
+//	// Constructor
+//	public BarberAuthServiceImplCopy(BarberUserDao barberUserDao) {
+//		super();
+//		this.barberUserDao = barberUserDao;
+//	}
 
 	/*
 	 * Sends a user object to the data access layer to check if the user exist
@@ -70,10 +71,7 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 	 */
 	@Override
 	public BarberUser registerUser(BarberUser user) {
-		
-		if(user != null) {
-			return null;
-		}
+
 		if (barberUserDao.createUser(user)) {
 
 			return user;
@@ -90,5 +88,8 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 		List<BarberUser> users = barberUserDao.getAllUsers();
 		return users;
 	}
-
+	
+	public void deleteAllUsers() {
+		barberUserDao.deleteAllUsers();
+	}
 }
