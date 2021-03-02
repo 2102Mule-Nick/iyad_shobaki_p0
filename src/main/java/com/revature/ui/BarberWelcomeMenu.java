@@ -32,7 +32,8 @@ public class BarberWelcomeMenu implements BarberMenu{
 	 */
 	@Override
 	public void displayOptions(Scanner scanner) {
-		System.out.println("Welcome to our application");
+		
+		System.out.println("------------ Welcome To The Barbershop Application ------------");
 		System.out.println("Would you like to login or register?");
 		String answer = scanner.nextLine();
 		

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.revature.pojo.Appointment;
+import com.revature.pojo.BarberUser;
 
 public interface BarberApptService {
 
@@ -17,5 +18,10 @@ public interface BarberApptService {
 	 * Connects with the data access layer, gets and returns a list of appointments
 	 */
 	public List<Appointment> getAllAppointments() throws IOException;
+	
+	/*
+	 * Connects with the data access layer, gets and returns a list of appointments for a specific user
+	 */
+	public List<Appointment> getAllUserAppointments(String username) throws IOException;
 	
 }

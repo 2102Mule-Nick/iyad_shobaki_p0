@@ -1,5 +1,7 @@
 package com.revature.ui;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 import com.revature.pojo.Appointment;
@@ -33,10 +35,13 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 	 *
 	 */
 	@Override
-	public void displayOptions(Scanner scanner) {
+	public void displayOptions(Scanner scanner) throws IOException {
+		
 		System.out.println(" ------- Welcome " + this.user.getUsername() + ", To The Book Appointment Page  --------");
 		printMenu();
-
+		
+		List<Appointment> appointments = null;
+		
 		boolean quit = false;
 
 		while (!quit) {
@@ -65,6 +70,15 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 				}
 
 				break;
+			case 2:
+				appointments = barberApptService.getAllUserAppointments(this.user.getUsername());
+				if (appointments.size() < 1) {
+					System.out.println("There are no appoinments found.");
+				}
+				for (Appointment appt : appointments) {
+					System.out.println(appt);
+				}
+				break;
 			case 9:
 				printMenu();
 				break;
@@ -77,7 +91,10 @@ public class BarberBookAppointmentMenu implements BarberMenu {
 	 */
 	public static void printMenu() {
 		System.out.println("Available actions:\npress");
-		System.out.println("0 - to quit\n" + "1 - Book an appointment\n" + "9 - Print available actions");
+		System.out.println("0 - to quit\n" +
+						   "1 - Book an appointment\n" +
+						   "2 - See all appointments\n" +
+						   "9 - Print available actions");
 
 	}
 

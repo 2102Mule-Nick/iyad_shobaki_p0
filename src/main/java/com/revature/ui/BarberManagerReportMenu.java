@@ -59,7 +59,7 @@ public class BarberManagerReportMenu implements BarberMenu {
 				appointments = barberApptService.getAllAppointments();
 				System.out.println("All appointments: ");
 				if (appointments.size() < 1) {
-					System.out.println("There are no appoinments.");
+					System.out.println("There are no appoinments found");
 				}
 				for (Appointment appt : appointments) {
 					System.out.println(appt);

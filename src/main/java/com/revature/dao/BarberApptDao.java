@@ -20,5 +20,7 @@ public interface BarberApptDao {
 	 * returns a list of appointments
 	 * 
 	 */
-	public List<Appointment> getAllAppoinment() throws IOException;
+	public List<Appointment> getAllAppointments() throws IOException;
+	
+	public List<Appointment> getAllUserAppointments(String username) throws IOException;
 }

@@ -85,7 +85,7 @@ public class BarberApptDaoKryo implements BarberApptDao {
 	 */
 	
 	@Override
-	public List<Appointment> getAllAppoinment() throws IOException {
+	public List<Appointment> getAllAppointments() throws IOException {
 		
 		log.info(CLASS_NAME + ".getAllAppoinment() -> " + "An Attempt to get all appointments");
 		List<Appointment> appointments = new ArrayList<>();
@@ -118,6 +118,44 @@ public class BarberApptDaoKryo implements BarberApptDao {
 		}
 	
 		log.info(CLASS_NAME + ".getAllAppoinment() -> " + "A list of appointments returned successfully!");
+		return appointments;
+	}
+	
+	/*
+	 * End point get all appointments records for a specific user
+	 * returns a list of appointments
+	 * 
+	 */
+	
+	@Override
+	public List<Appointment> getAllUserAppointments(String username) throws IOException{
+		List<Appointment> appointments = new ArrayList<>();
+
+		String userDir = System.getProperty("user.dir");
+		userDir = userDir + "/" + FOLDER_NAME;
+		
+		List<File> files = Files.list(Paths.get(userDir)).filter(Files::isRegularFile).map(Path::toFile)
+				.collect(Collectors.toList());
+
+		for (int i = 0; i < files.size(); i++) {
+			String filePath = files.get(i).toString();
+			Path path = Paths.get(filePath);
+			Path fileName = path.getFileName();
+			try (FileInputStream inputStream = new FileInputStream(FOLDER_NAME + fileName.toString())) {
+				Input input = new Input(inputStream);
+				Appointment appointment = kryo.readObject(input, Appointment.class);
+				input.close();
+				
+				if(appointment.getUsername().equalsIgnoreCase(username)) {
+					System.out.println(appointment);
+					appointments.add(appointment);
+				}
+
+			} catch (FileNotFoundException e) {
+			} catch (IOException e) {
+			}
+		}
+
 		return appointments;
 	}
 

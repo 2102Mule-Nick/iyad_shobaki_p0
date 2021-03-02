@@ -42,12 +42,38 @@ class BarberApptDaoKryoCopyTest {
 	}
 
 	@Test
-	void testGetAllAppoinment() {
+	void testGetAllAppointments() {
 		service.createAppointment(appointment1);
 		service.createAppointment(appointment2);
 		service.createAppointment(appointment3);
 		try {
-			assertEquals(3, service.getAllAppoinment().size());
+			assertEquals(3, service.getAllAppointments().size());
+		} catch (IOException e) {
+
+		}
+
+	}
+	
+	@Test
+	void testGetAllUserAppointmentsForExisitingUser() {
+		service.createAppointment(appointment1);
+		service.createAppointment(appointment2);
+		service.createAppointment(appointment3);
+		try {
+			assertEquals(1, service.getAllUserAppointments("Mike").size());
+		} catch (IOException e) {
+
+		}
+
+	}
+	
+	@Test
+	void testGetAllUserAppointmentsForNonExistingUSer() {
+		service.createAppointment(appointment1);
+		service.createAppointment(appointment2);
+		service.createAppointment(appointment3);
+		try {
+			assertEquals(0, service.getAllUserAppointments("Jack").size());
 		} catch (IOException e) {
 
 		}

@@ -36,7 +36,16 @@ public class BarberApptServiceImpl implements BarberApptService {
 	 */
 	@Override
 	public List<Appointment> getAllAppointments() throws IOException {
-		List<Appointment> appointments = barberApptDao.getAllAppoinment();
+		List<Appointment> appointments = barberApptDao.getAllAppointments();
+		return appointments;
+	}
+	
+	/*
+	 * Connects with the data access layer, gets and returns a list of appointments for a specific user
+	 */
+	@Override
+	public List<Appointment> getAllUserAppointments(String username) throws IOException {
+		List<Appointment> appointments = barberApptDao.getAllUserAppointments(username);
 		return appointments;
 	}
 
