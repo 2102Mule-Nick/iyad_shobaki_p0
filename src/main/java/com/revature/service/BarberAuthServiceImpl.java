@@ -71,7 +71,7 @@ public class BarberAuthServiceImpl implements BarberAuthSerivce {
 	@Override
 	public BarberUser registerUser(BarberUser user) {
 		
-		if(user != null) {
+		if(user == null) {
 			return null;
 		}
 		if (barberUserDao.createUser(user)) {
