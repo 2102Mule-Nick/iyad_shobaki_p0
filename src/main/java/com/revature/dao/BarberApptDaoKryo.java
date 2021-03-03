@@ -136,7 +136,7 @@ public class BarberApptDaoKryo implements BarberApptDao {
 			}
 		}
 
-		log.info(CLASS_NAME + ".getAllAppoinment() -> " + "A list of appointments returned successfully!");
+		log.info(CLASS_NAME + ".getAllAppointments() -> " + "A list of appointments returned successfully!");
 		return appointments;
 	}
 
@@ -178,7 +178,6 @@ public class BarberApptDaoKryo implements BarberApptDao {
 				input.close();
 
 				if (appointment.getUsername().equalsIgnoreCase(username)) {
-					System.out.println(appointment);
 					appointments.add(appointment);
 				}
 

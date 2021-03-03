@@ -9,10 +9,10 @@ public class BarberWelcomeMenu implements BarberMenu {
 	private BarberMenu barberNextMenu;
 
 	// Constructor
-	public BarberWelcomeMenu(BarberMenu barberLoginMenu, BarberMenu barberLegistrationMenu) {
+	public BarberWelcomeMenu(BarberMenu barberLoginMenu, BarberMenu barberRegistrationMenu) {
 		super();
 		this.barberLoginMenu = barberLoginMenu;
-		this.barberRegistrationMenu = barberLegistrationMenu;
+		this.barberRegistrationMenu = barberRegistrationMenu;
 	}
 
 	/*

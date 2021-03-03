@@ -46,9 +46,7 @@ public class BarberRegistrationMenu implements BarberMenu {
 		// this.user = new BarberUser(username, password);
 
 		if (!barberAuthSerivce.isUserExist(this.user)) {
-			System.out.println("reach here1");
 			if (barberAuthSerivce.registerUser(this.user) != null) {
-				System.out.println("reach here2");
 				barberNextMenu = barberLoginMenu;
 			} else {
 				this.user.setUsername("");
